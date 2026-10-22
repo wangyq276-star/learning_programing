@@ -4,7 +4,27 @@
 */
 #include<vector>
 #include<iostream>
+#include<tools.h>
 using namespace std;
+
+//函数的声明
+vector<vector<int>> subset(vector<int>& set);
+// template <class T>
+// void print2D(const vector<vector<T>>& a, char sep = ',');
+
+//用于测试的集合
+vector<int> test = {1, 2, 3};
+vector<vector<int>> tes;
+
+//被别的文件调用时，为了防止main函数的冲突，可加预处理指令
+//此处只做演示，无目的，因为该文件无需被引用
+#ifdef COMPILE_AS_MAIN
+int main(){
+    tes = subset(test);
+    print2D(tes);
+
+}
+#endif
 
 //这里采用核心代码模式，暂不考虑输入输出
 //后续加入了输出函数
@@ -27,26 +47,4 @@ vector<vector<int>> subset(vector<int>& set){
         end.push_back(res);
     }
     return end;
-}
-
-//随便写一个打印函数用于输出字符
-template <class T>
-void print2D(const vector<vector<T>>& a, char sep = ' ') {
-    for (const auto& row : a) {
-        for (size_t j = 0; j < row.size(); j++) {
-            if (j > 0) cout << sep;
-            cout << row[j];
-        }
-        cout << '\n';
-    }
-}
-
-//用于测试的集合
-vector<int> test = {1, 2, 3};
-vector<vector<int>> tes;
-
-int main(){
-    tes = subset(test);
-    print2D(tes);
-
 }

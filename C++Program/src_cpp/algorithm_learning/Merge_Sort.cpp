@@ -1,14 +1,28 @@
 #include<iostream>
+#include<tools.h>
 using namespace std;
 
+void show(int * ls, int len);
+void sort(int left, int right);
+
+//测试用例
 const int N = 1e6 + 10;
 int L[N] = {65,48,15, 8,60,44, 81,49,45, 37,35,69, 7,56,91, 
             83,71,98, 70,32,24, 38,85,59, 21,9,24, 6,84,54};
 int len = 30;
 
+//归并排序一定要借用第二个数组，无法仅通过自身完成排序
 int temp[N] = {};
 
-void sort(int left, int right){
+#ifdef COMPILE_AS_MAIN
+int main(){
+    show(L, len);
+    Marge_sort(0, len - 1);
+    show(L, len);
+}
+#endif
+
+void Marge_sort(int left, int right){
     if (left >= right){
         return;
     }
@@ -17,8 +31,8 @@ void sort(int left, int right){
     int mid = (right + left) >> 1;
 
     //采用递归完成排序，其结果默认有序
-    sort(left, mid);
-    sort(mid + 1, right);
+    Marge_sort(left, mid);
+    Marge_sort(mid + 1, right);
 
     //借助辅助数组完成有序数组的合并（难点）
     int i = left, j = mid + 1, k = left;
@@ -40,16 +54,3 @@ void sort(int left, int right){
         L[t] = temp[t];
     }
 } 
-
-void show(int * ls, int len){
-    for (int i = 0; i < len; i++){
-        cout << ls[i] << " ";
-    }
-    cout << endl;
-}
-
-int main(){
-    show(L, len);
-    sort(0, len - 1);
-    show(L, len);
-}

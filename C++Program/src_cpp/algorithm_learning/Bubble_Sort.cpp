@@ -1,4 +1,5 @@
 #include<iostream>
+#include<tools.h>
 using namespace std;
 
 const int N = 1e6 + 10;
@@ -8,7 +9,7 @@ int len = 30;
 // int L[N] = {5,3};
 // int len = 2;
 
-void sort(int * ls, int len){
+void Bubble_sort(int * ls, int len){
     int temp;
     
     //不断与前一个元素比较，并作交换，每一轮选出第n大的数
@@ -23,15 +24,8 @@ void sort(int * ls, int len){
     }
 } 
 
-void show(const int * ls, int len){
-    for (int i = 0; i < len; i++){
-        cout << ls[i] << " ";
-    }
-    cout << endl;
-}
-
 int main(){
     show(L, len);
-    sort(L, len);
+    Bubble_sort(L, len);
     show(L, len);
 }

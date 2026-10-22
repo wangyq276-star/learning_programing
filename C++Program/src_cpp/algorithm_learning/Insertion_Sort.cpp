@@ -9,7 +9,7 @@ int len = 30;
 // int L[N] = {5,3};
 // int len = 2;
 
-void sort(int * ls, int len){
+void Insert_sort(int * ls, int len){
     //遍历该数组的每一个元素（默认首元素有序）
     for (int i = 1; i < len; i++){
         //先把要插入的对象保存下来
@@ -48,6 +48,6 @@ void show(int * ls, int len){
 
 int main(){
     show(L, len);
-    sort(L, len);
+    Insert_sort(L, len);
     show(L, len);
 }

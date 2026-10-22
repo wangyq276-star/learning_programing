@@ -1,5 +1,6 @@
 #include<iostream>
 #include<ctime>
+#include<tools.h>
 using namespace std;
 
 const int N = 1e6 + 10;
@@ -20,7 +21,7 @@ int getRandom(int left, int right){
     return rand() % (right - left + 1) + left;
 }
 
-void sort(int left, int right){
+void Quick_sort(int left, int right){
     //保证区间长度非负
     if (left >= right){
         return;
@@ -51,21 +52,14 @@ void sort(int left, int right){
     */
     //正确代码如下
 
-    sort(left, l - 1);
-    sort(r + 1, right);
-}
-
-void show(const int * ls, int len){
-    for (int i = 0; i < len; i++){
-        cout << ls[i] << " ";
-    }
-    cout << endl;
+    Quick_sort(left, l - 1);
+    Quick_sort(r + 1, right);
 }
 
 int main(){
     srand(time(0));
 
     show(L, len);
-    sort(0, len - 1);
+    Quick_sort(0, len - 1);
     show(L, len);
 }
