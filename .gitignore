@@ -1,0 +1,39 @@
+# ---- 构建 / 编译产物（可随时重新生成，不进仓库） ----
+out_exe/
+out/
+target/
+build/
+bin/
+obj/
+dist/
+Debug/
+Release/
+
+# ---- 编译中间文件与可执行文件 ----
+*.exe
+*.o
+*.obj
+*.class
+*.pdb
+*.ilk
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+
+# ---- IDE / 编辑器（.vscode 里的构建任务保留） ----
+.idea/
+*.iml
+*.sln.DotSettings.user
+
+# ---- 系统文件 ----
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ---- 本仓库自身的收尾目录 ----
+_gittest/
