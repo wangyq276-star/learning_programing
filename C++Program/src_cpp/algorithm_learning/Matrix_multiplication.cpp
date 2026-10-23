@@ -13,6 +13,7 @@
 #include"tools.h"
 using namespace std;
 
+//建立三个二维数组来进行矩阵乘法计算
 vector<vector<int>> A;
 vector<vector<int>> B;
 vector<vector<int>> C;
