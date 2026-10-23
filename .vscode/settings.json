@@ -1,9 +1,14 @@
 {
+    "java.project.sourcePaths": [
+        "IdeaProjects/haveATry/src"
+    ],
+    "python.defaultInterpreterPath": "D:\\Python3.13.15AndPycharm\\python.exe",
     "python-envs.pythonProjects": [
         {
             "path": "PythonProject",
             "envManager": "ms-python.python:system",
             "packageManager": "ms-python.python:pip"
         }
-    ]
+    ],
+    "files.autoGuessEncoding": true
 }

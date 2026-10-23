@@ -30,10 +30,13 @@ venv/
 *.iml
 *.sln.DotSettings.user
 
+# ---- Java 扩展（redhat.java）在仓库根目录生成的元数据 ----
+.project
+.classpath
+.settings/
+.factorypath
+
 # ---- 系统文件 ----
 Thumbs.db
 Desktop.ini
 .DS_Store
-
-# ---- 本仓库自身的收尾目录 ----
-_gittest/
