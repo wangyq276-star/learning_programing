@@ -23,11 +23,12 @@ const int MAX =1e5 + 10;
 //分别是数列的个数n与提问的次数p
 int n, p;
 
-//选取的左索引和右索引
+//选取的左索引和右索引（因为是数组的下标，从 1 开始，所有注意后面要减去 1）
 int l, r;
 
 //用于存储前n项和的数组
-int s[MAX] = {0};
+//用long long 防止数据溢出
+long long  s[MAX] = {0};
 
 //定义一个变量，用于计算和
 int a_n = 0;
@@ -43,11 +44,18 @@ int main(){
         s[i] = total;
     }
 
+    preSum(l, r, s);
+}
+
+//写一个函数来返回前缀和
+int preSum(int l, int r, long long* s){
     for (int i = 0; i < p; i++){
         //已经确定l < r
         cin >> l >> r;
         l--; r--;
-        cout << (s[r] - s[l]) << endl;
-    }
 
+        //这里区间之前搞错了，因为是闭区间[l, r]，所有要减去s[l - 1]
+        cout << (s[r] - s[l - 1]) << endl;
+    }
+    return (s[r] - s[l - 1]);
 }
