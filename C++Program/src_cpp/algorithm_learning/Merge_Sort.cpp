@@ -1,5 +1,5 @@
 #include<iostream>
-#include<tools.h>
+#include"tools.h"
 using namespace std;
 
 void show(int * ls, int len);
