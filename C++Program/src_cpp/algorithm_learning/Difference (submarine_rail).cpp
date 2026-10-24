@@ -83,5 +83,10 @@ void diff(int left, int right, int* arr, int k){
 }
 
 int findMin(int* arr, int* A, int* B, int* C){
-
+    int money = 0;
+    for (int i = 0; i < n - 1; i++){
+        money += min(times[i] * A[i], C[i] + times[i] * B[i]);
+    }
+    cout << money <<endl;
+    
 }
