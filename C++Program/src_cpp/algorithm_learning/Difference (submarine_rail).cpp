@@ -88,5 +88,5 @@ int findMin(int* arr, int* A, int* B, int* C){
         money += min(times[i] * A[i], C[i] + times[i] * B[i]);
     }
     cout << money <<endl;
-    
+    return money;
 }
