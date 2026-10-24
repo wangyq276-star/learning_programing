@@ -4,7 +4,7 @@
 */
 #include<vector>
 #include<iostream>
-#include"tools.h"
+#include"print_tools.h"
 using namespace std;
 
 //函数的声明

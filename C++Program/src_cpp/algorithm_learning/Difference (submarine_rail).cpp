@@ -52,14 +52,15 @@ int main(){
     for (int i = 0; i < m; i++){
         cin >> P[i];
     }
-
+    
+    //给每个数组都留一个哨兵位便于处理
     for (int i = 0; i < n - 1; i++){
-        cin >> A[i] >> B[i] >> C[i];
+        cin >> A[i + 1] >> B[i + 1] >> C[i + 1];
     }
 
     //对每一段区间进行累计
     int l, r;
-    for (int i = 1; i < m - 1; i++){
+    for (int i = 1; i < m; i++){
         l = min(P[i], P[i - 1]);
         r = max(P[i], P[i - 1]);
         diff(l, r - 1, d, 1);
@@ -67,7 +68,7 @@ int main(){
 
     //还原出真实的次数
     int a_n = d[0];
-    for (int i = 0; i < m; i++){
+    for (int i = 0; i < n - 1; i++){
         a_n += d[i + 1];
         times[i + 1] = a_n;
     }
@@ -79,12 +80,12 @@ int main(){
 void diff(int left, int right, int* arr, int k){
     //只需要对首尾两部分进行更改即可
     arr[left] += k;
-    arr[right - 1] -= k;
+    arr[right + 1] -= k;
 }
 
 int findMin(int* arr, int* A, int* B, int* C){
     int money = 0;
-    for (int i = 0; i < n - 1; i++){
+    for (int i = 1; i < n; i++){
         money += min(times[i] * A[i], C[i] + times[i] * B[i]);
     }
     cout << money <<endl;

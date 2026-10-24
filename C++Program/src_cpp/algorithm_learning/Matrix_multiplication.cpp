@@ -10,7 +10,7 @@
 #include<vector>
 
 //这里借用了头文件里的print2D函数来输出打印矩阵
-#include"tools.h"
+#include"print_tools.h"
 using namespace std;
 
 //建立三个二维数组来进行矩阵乘法计算

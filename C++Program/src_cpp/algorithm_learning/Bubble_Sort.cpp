@@ -1,5 +1,5 @@
 #include<iostream>
-#include"tools.h"
+#include"print_tools.h"
 using namespace std;
 
 const int N = 1e6 + 10;

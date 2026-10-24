@@ -51,6 +51,7 @@ double L_S(const char * text,int len,char c){
     }else if(toupper(c) == 'S'){
         return (double)sente * 100 / word;
     }
+    return 0;
 }
 
 

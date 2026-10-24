@@ -85,7 +85,7 @@ struct Bignum{
 
     //判断两数绝对值
     short abs(const Bignum& num1, const Bignum& num2){
-
+        return 0;
     }
 
     //定义相加函数，要考虑两个数可能为负数的情况
