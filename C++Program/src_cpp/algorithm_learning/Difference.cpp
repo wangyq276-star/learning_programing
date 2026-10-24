@@ -54,7 +54,7 @@ void diff(int left, int right, long* arr, int k){
     //只需要对首尾两部分进行更改即可
     arr[left] += k;
     arr[right + 1] -= k;
-
+    
     int a_n = arr[0];
     for (int i = 0; i < n; i++){
         a_n += d[i + 1];
