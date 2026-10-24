@@ -17,24 +17,55 @@ using namespace std;
 
 const int N = 1e5 + 10;
 
-//数列中项的个数和数列数组存储
+//引入前缀和来解决问题
+//数列中项的个数和前缀和数组存储
 int n;
-int a[N] = {0};
+long long a[N] = {0};
 
-void findMaxSub(int* arr);
+void findMaxSub(long long* arr, int n);
 
 int main(){
     cin >> n;
 
+    int total = 0, t;
+
     for (int i = 0; i < n; i++){
-        cin >> a[i];
+        cin >> t;
+        total += t;
+        a[i + 1] = total;
     }
 
-    findMaxSub(a);
+    findMaxSub(a, n);
 
 }
 
-//写一个函数实现找到最大子列
-void findMaxSub(int* srr){
+//写一个函数实现找到最大子列和
+void findMaxSub(long long* arr, int len){
+    //运用擂台比较的方式得到
+    int max = arr[0];
+    int tol = 0;
+    int left, right;
 
+    for (int i = 1; i < len; i++){
+        for (int j = i; j < len; j++){
+            tol = arr[j] - arr[i - 1];
+            if (tol > max){
+                max = tol;
+                left = i;
+                right = j;
+            }
+        }
+    }
+    cout << "The max subarray is from " << left << " to " << right <<endl;
+    cout << "Max is " << max << endl;
+    
 }
+
+/*
+测试用例
+7
+2 -4 3 -1 2 -4 3 
+
+The max subarray is from 3 to 5
+Max is 4
+*/

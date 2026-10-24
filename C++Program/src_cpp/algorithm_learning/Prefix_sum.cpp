@@ -41,21 +41,26 @@ int main(){
     for (int i = 0; i < n; i++){
         cin >> a_n;
         total += a_n;
-        s[i] = total;
+        //这里前面要加一个哨兵位，不然不好求 l = 0 时的和
+        s[i + 1] = total;
     }
 
-    preSum(l, r, s);
+    for (int i = 0; i < p; i++){
+            //已经确定l < r
+            cin >> left >> right;
+            preSum(l, r, s);
+    }
+    
 }
 
-//写一个函数来返回前缀和
-int preSum(int l, int r, long long* s){
-    for (int i = 0; i < p; i++){
-        //已经确定l < r
-        cin >> l >> r;
-        l--; r--;
-
-        //这里区间之前搞错了，因为是闭区间[l, r]，所有要减去s[l - 1]
-        cout << (s[r] - s[l - 1]) << endl;
+//写一个函数来返回区间的和
+int preSum(int left, int right, long long* arr){
+    if (left > right){
+        cout << "Wrong" << endl;
+        return 0;
     }
-    return (s[r] - s[l - 1]);
+    
+    //这里区间之前搞错了，因为是闭区间[l, r]，所有要减去arr[l - 1]
+    cout << (arr[r] - arr[l - 1]) << endl;
+    return (arr[r] - arr[l - 1]);
 }

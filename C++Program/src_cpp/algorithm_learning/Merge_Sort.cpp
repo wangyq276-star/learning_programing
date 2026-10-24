@@ -14,13 +14,11 @@ int len = 30;
 //归并排序一定要借用第二个数组，无法仅通过自身完成排序
 int temp[N] = {};
 
-#ifdef COMPILE_AS_MAIN
 int main(){
     show(L, len);
     Marge_sort(0, len - 1);
     show(L, len);
 }
-#endif
 
 void Marge_sort(int left, int right){
     if (left >= right){
