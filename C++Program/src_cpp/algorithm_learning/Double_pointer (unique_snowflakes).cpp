@@ -22,9 +22,8 @@ Emily 想知道这样一个不包含两片一样的雪花的包裹最大能有�
 对于每一组数据，输出最大包裹的大小，即最长的不包含重复元素的连续子序列长度
 */
 #include<iostream>
-//借助哈希表进行相同和不同元素的查找与判断
-#include"search_tools.h"
-#include<vector>
+//使用键值对完成对所在窗口内元素出现次数的存储
+#include<unordered_map>
 
 using namespace std;
 
@@ -35,24 +34,46 @@ int T;
 int n;
 //用于存储雪花的标记
 int snow[N] = {0};
-vector<vector<int>> snow_hash = {{0}};
 
-int findSub(const int* arr, int len, vector<vector<int>>& hashTable);
+int findSub(const int* arr, int len);
 
 int main(){
     cin >> T;
-    for (int i = 0; i < T; i++){
+
+    //可用T--来代替原来的for循环
+    while (T--){
         cin >> n;
-        for (int j = 0; j < n; j++){
+        for (int j = 1; j < n + 1; j++){
             cin >> snow[j];
         }
+
         //实现找子列的逻辑
-        findSub(snow, n, snow_hash);
-        //重置数列
+        findSub(snow, n);
+
+        //重置数列,防止数据污染
         for (int j = 0; j < n; j++){
             snow[j] = 0;
         }
     }
+}
+
+int findSub(const int* arr, int len){   
+
+    //先进行窗口和双指针的初始化
+    unordered_map<int, int> window;
+    int left = 1, right = 1;
+
+    //右索引处，元素进窗口
+    window[arr[right]]++;
+
+    //判断该元素在窗口内有无重复
+    while (arr[right] > 1){
+        //如果有重复，移动左指针直到它出窗口为止
+        window[arr[left]]++;
+        left--;
+    }
+
+    return 0;
 }
 
 //嘻嘻，别想了，双循环必然超时
@@ -82,4 +103,5 @@ int findSub(const int* arr, int len, vector<vector<int>>& hashTable){
     return longest;
 }
 */
+
 
