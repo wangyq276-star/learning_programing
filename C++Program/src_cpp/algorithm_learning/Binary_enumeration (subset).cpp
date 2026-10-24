@@ -18,13 +18,11 @@ vector<vector<int>> tes;
 
 //被别的文件调用时，为了防止main函数的冲突，可加预处理指令
 //此处只做演示，无目的，因为该文件无需被引用
-#ifdef COMPILE_AS_MAIN
 int main(){
     tes = subset(test);
     print2D(tes);
 
 }
-#endif
 
 //这里采用核心代码模式，暂不考虑输入输出
 //后续加入了输出函数

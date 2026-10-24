@@ -14,6 +14,8 @@ int len = 30;
 //归并排序一定要借用第二个数组，无法仅通过自身完成排序
 int temp[N] = {};
 
+void Marge_sort(int left, int right);
+
 int main(){
     show(L, len);
     Marge_sort(0, len - 1);

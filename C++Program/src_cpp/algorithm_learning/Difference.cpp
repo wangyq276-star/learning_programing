@@ -57,7 +57,7 @@ void diff(int left, int right, long* arr, int k){
     
     int a_n = arr[0];
     for (int i = 0; i < n; i++){
-        a_n += d[i + 1];
+        a_n += arr[i + 1];
         cout << a_n << ' ';
     }
 }

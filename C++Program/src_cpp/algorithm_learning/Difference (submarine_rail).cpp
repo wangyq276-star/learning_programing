@@ -38,8 +38,13 @@ int P[N] = {0};
 int A[N];//单程票价格
 int B[N];//IC卡优惠后价格
 int C[N];//工本费
-//保存每段路途需要花的钱
-int mon[N];
+//保存每段路途经过的次数（运用差分）
+int d[N] = {0};
+//真正的次数
+int times[N] = {0};
+
+void diff(int left, int right, int* arr, int k);
+int findMin(int* arr, int* A, int* B, int* C);
 
 int main(){
     cin >> n >> m;
@@ -52,9 +57,31 @@ int main(){
         cin >> A[i] >> B[i] >> C[i];
     }
 
-    findMin();
+    //对每一段区间进行累计
+    int l, r;
+    for (int i = 1; i < m - 1; i++){
+        l = min(P[i], P[i - 1]);
+        r = max(P[i], P[i - 1]);
+        diff(l, r - 1, d, 1);
+    }
+
+    //还原出真实的次数
+    int a_n = d[0];
+    for (int i = 0; i < m; i++){
+        a_n += d[i + 1];
+        times[i + 1] = a_n;
+    }
+
+    findMin(times, A, B, C);
 }
 
-int findMin(){
+//直接照搬差分函数的实现
+void diff(int left, int right, int* arr, int k){
+    //只需要对首尾两部分进行更改即可
+    arr[left] += k;
+    arr[right - 1] -= k;
+}
+
+int findMin(int* arr, int* A, int* B, int* C){
 
 }

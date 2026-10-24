@@ -3,46 +3,37 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: g++.exe 生成活动文件",
-            "command": "D:/VScode/mingw64/bin/g++.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\..\\..\\out_exe\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "C++：输出到 C++Program/out_exe（源文件在 src_cpp 下两层）"
-        },
-        {
-            "type": "cppbuild",
-            "label": "C/C++: gcc.exe 生成活动文件",
+            "label": "编译当前文件 (C语言 gcc)",
             "command": "D:/VScode/mingw64/bin/gcc.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\..\\out_exe\\${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}/CProgram/out_exe/${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
-            "problemMatcher": [
-                "$gcc"
+            "problemMatcher": ["$gcc"],
+            "group": "build"
+        },
+        {
+            "type": "cppbuild",
+            "label": "编译当前文件 (C++ g++)",
+            "command": "D:/VScode/mingw64/bin/g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceFolder}/C++Program/out_exe/${fileBasenameNoExtension}.exe"
             ],
-            "group": "build",
-            "detail": "C：输出到 CProgram/out_exe（源文件在 src_c 下一层）"
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": "build"
         }
     ]
 }
