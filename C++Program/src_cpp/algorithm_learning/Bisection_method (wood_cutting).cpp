@@ -15,3 +15,19 @@
 仅一行，即 l 的最大值。
 如果连 1cm 长的小段都切不出来，输出 0
 */
+#include<iostream>
+using namespace std;
+
+const int N = 1e5 + 10;
+int n, k;
+int woods[N] = {0};
+
+int main(){
+    cin >> n >> k;
+
+    for (int i = 0; i < n; i++){
+        cin >> woods[i];
+    }
+
+    
+}

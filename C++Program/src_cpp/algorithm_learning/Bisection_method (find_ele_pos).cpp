@@ -68,8 +68,7 @@ void Find_range(const int* List, int len, int target){
 
     int start = left;
 
-    left = 0;
-    right = len - 1;
+    left = 0;right = len - 1;
 
     while (left < right){
         mid = left + ((right - left + 1) >> 1);
