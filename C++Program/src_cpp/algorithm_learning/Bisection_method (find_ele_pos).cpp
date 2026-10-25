@@ -12,25 +12,24 @@
 输出：[3,4]
 */
 #include<iostream>
-#include"search_tools.h"
 using namespace std;
 
 const int N = 1e5 + 10;
 
 int nums[N] = {0};
-int targer;
+int target;
+
+void Find_range(const int* List, int len, int target);
 
 int main(){
     int n;
-    int idx;
-    int l, r;
-    
-    cin >> n >> targer;
+
+    cin >> n >> target;
     for (int i = 0; i < n; i++){
         cin >> nums[i];
     }
     
-    bool flag = searchtools::Binary_search(nums, n, targer, idx);
+    Find_range(nums, n, target);
 
     /*
     使用先找一个然后线性向两边扩展的方法时间复杂度还是O（N）
@@ -39,15 +38,55 @@ int main(){
         l = -1; r = -1;
     }else{
         l = idx; r = idx;
-        while (nums[l] == targer){
+        while (nums[l] == target){
             l--;
         }
-        while (nums[r] == targer){
+        while (nums[r] == target){
             r++;
         }
     }
     */
     
-    cout << '[' << l + 1 << ',' << r - 1 << ']' << endl;
+}
+
+void Find_range(const int* List, int len, int target){
+    if (len == 0){
+        cout << "[-1,-1]" << endl;
+        return;
+    }
+
+    int left = 0, right = len - 1, mid;
+
+    while (left < right){
+        mid = left + ((right - left) >> 1);
+        if (List[mid] >= target){
+            right = mid;
+        }else if (List[mid] < target){
+            left = mid + 1;
+        }
+    }
+
+    int start = left;
+
+    left = 0;
+    right = len - 1;
+
+    while (left < right){
+        mid = left + ((right - left + 1) >> 1);
+        if (List[mid] <= target){
+            left = mid;
+        }else if (List[mid] > target){
+            right = mid - 1;
+        }
+    }
+
+    int end = right;
     
+    if (end >= start && List[start] == target){
+        cout << '[' << start << ',' << end << ']' << endl;
+    }else{
+        cout << "[-1,-1]" << endl;
+    }
+    return;
+
 }

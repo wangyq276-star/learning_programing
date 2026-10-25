@@ -32,7 +32,7 @@ inline bool Binary_search(const int* arr, const int len, const int key,int& outI
     // 只有 key 落在当前区间内才继续
     while (left <= right && key >= arr[left] && key <= arr[right]) {
         outCount++;
-        int mid = left + (right - left) / 2;      
+        int mid = left + (right - left) >> 1;      
 
         if (arr[mid] == key) {
             outIndex = mid;

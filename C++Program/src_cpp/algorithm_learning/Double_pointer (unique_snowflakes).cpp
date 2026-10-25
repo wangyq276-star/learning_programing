@@ -59,6 +59,7 @@ int main(){
     }
 }
 
+//运用双指针构造窗口解决问题，窗口某种程度上看也是一种哈希表
 int findSub(const int* arr, int len, unordered_map<int, int>& window){   
 
     //先进行双指针的初始化
