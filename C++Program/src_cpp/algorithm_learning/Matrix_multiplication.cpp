@@ -20,7 +20,7 @@ vector<vector<int>> C;
 
 //对于函数的声明
 int sum(const vector<vector<int>>& A, const vector<vector<int>>& B, int i, int j);
-vector<vector<int>> cal(const vector<vector<int>>& A, const vector<vector<int>>& B);
+vector<vector<int>> multip(const vector<vector<int>>& A, const vector<vector<int>>& B);
 void inputMatr(vector<vector<int>>& A);
 
 int main(){
@@ -53,13 +53,13 @@ int main(){
     print2D(B);
 
 
-    C = cal(A, B);
+    C = multip(A, B);
     cout << "C: ";
     print2D(C);
 }
 
 //计算乘积矩阵的每一个元素
-vector<vector<int>> cal(const vector<vector<int>>& A, const vector<vector<int>>& B){
+vector<vector<int>> multip(const vector<vector<int>>& A, const vector<vector<int>>& B){
     vector<vector<int>> res(0);
     if (A.empty() || B.empty()){
         cout << "Wrong" <<endl;

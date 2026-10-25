@@ -1,4 +1,6 @@
 #include<iostream>
+#include"print_tools.h"
+
 using namespace std;
 
 const int N = 1e6 + 10;
@@ -8,37 +10,30 @@ int len = 30;
 // int L[N] = {5,3};
 // int len = 2;
 
-void sort(int * ls, int len){
+void Selection_sort(int* List, int len){
     int temp;
-    int index;
+    int index = 0;
     
 
     //通过遍历，每次找最小的数
     for (int i = 0; i < len; i++){
-        int min = ls[i];
+        int min = List[i];
         for (int j = len - 1; j > i; j--){
-            if (ls[j] < min){
-                min = ls[j];
+            if (List[j] < min){
+                min = List[j];
                 index = j;
             }
         }
         //不断与第一个未排序的元素交换位置
-        temp = ls[i];
-        ls[i] = min;
-        ls[index] = temp;
+        temp = List[i];
+        List[i] = min;
+        List[index] = temp;
     }
     
 } 
 
-void show(const int * ls, int len){
-    for (int i = 0; i < len; i++){
-        cout << ls[i] << " ";
-    }
-    cout << endl;
-}
-
 int main(){
     show(L, len);
-    sort(L, len);
+    Selection_sort(L, len);
     show(L, len);
 }

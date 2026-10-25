@@ -34,8 +34,9 @@ int T;
 int n;
 //用于存储雪花的标记
 int snow[N] = {0};
+unordered_map<int, int> window;
 
-int findSub(const int* arr, int len);
+int findSub(const int* arr, int len, unordered_map<int, int>& window);
 
 int main(){
     cin >> T;
@@ -48,30 +49,30 @@ int main(){
         }
 
         //实现找子列的逻辑
-        findSub(snow, n);
+        findSub(snow, n, window);
 
         //重置数列,防止数据污染
-        for (int j = 0; j < n; j++){
+        for (int j = 1; j < n + 1; j++){
             snow[j] = 0;
         }
+        window.clear();
     }
 }
 
-int findSub(const int* arr, int len){   
+int findSub(const int* arr, int len, unordered_map<int, int>& window){   
 
-    //先进行窗口和双指针的初始化
-    unordered_map<int, int> window;
+    //先进行双指针的初始化
     int left = 1, right = 1, longest = 0;
 
-    while (right <= n){
+    while (right <= len){
         //右索引处，元素进窗口
         window[arr[right]]++;
 
         //判断该元素在窗口内有无重复
-        while (arr[right] > 1){
+        while (window[arr[right]] > 1){
             //如果有重复，移动左指针直到它出窗口为止
-            window[arr[left]]++;
-            left--;
+            window[arr[left]]--;
+            left++;
         }
 
         //更新最大值
