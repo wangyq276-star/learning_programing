@@ -1,12 +1,18 @@
-# learning_programing
+# learning_programming
 
-平时写的一些算法题解和学习代码，顺手存一下，方便以后翻看和复习。
+平时写的一些算法题解和学习代码，顺手存一下，方便以后翻看和复习。（我的仓库名单词好像拼错了，但是改完又要重新链接远程仓库，好麻烦，就这样吧）
 
 ## 目录说明
 
 ```text
 learning_programing/
-├── ...    # 各类算法题、练习代码
+├──.vscode → 我的VScode配置文件
+├──CProgram → C语言代码(.c)
+├──C++Program → C++代码(.cpp .h)
+├──IdeaProject → Java代码(.java)
+├──CProgram → Python代码(.py)
+├──Study_resources → 一些学习资料
+├──、、、 → 余下部分是我的git配置文件和许可证
 ```
 
 目录和文件大多按题目或知识点随手命名，没有严格的规范，以实际内容为准。
