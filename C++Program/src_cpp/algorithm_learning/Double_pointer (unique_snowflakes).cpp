@@ -61,19 +61,29 @@ int findSub(const int* arr, int len){
 
     //先进行窗口和双指针的初始化
     unordered_map<int, int> window;
-    int left = 1, right = 1;
+    int left = 1, right = 1, longest = 0;
 
-    //右索引处，元素进窗口
-    window[arr[right]]++;
+    while (right <= n){
+        //右索引处，元素进窗口
+        window[arr[right]]++;
 
-    //判断该元素在窗口内有无重复
-    while (arr[right] > 1){
-        //如果有重复，移动左指针直到它出窗口为止
-        window[arr[left]]++;
-        left--;
+        //判断该元素在窗口内有无重复
+        while (arr[right] > 1){
+            //如果有重复，移动左指针直到它出窗口为止
+            window[arr[left]]++;
+            left--;
+        }
+
+        //更新最大值
+        longest = max(longest, right - left + 1);
+
+        //窗口右移
+        right++;
+
     }
 
-    return 0;
+    cout << longest << endl;
+    return longest;
 }
 
 //嘻嘻，别想了，双循环必然超时
