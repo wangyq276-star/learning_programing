@@ -15,36 +15,56 @@ using HashTable = std::vector<std::vector<int>>;
 
 /* ============================================================
  * 1. Binary_search  —— 二分查找
- *    arr      : 待查找数组（内部会拷贝并排序，不修改原数组）
+ *    arr      : 待查找数组（要求必须升序）
  *    key      : 目标值
  *    outIndex : 找到时返回 key 在升序数组中的下标
  *    outCount : 比较次数
  *    返回     : true 表示找到，false 表示未找到
  * ============================================================ */
-inline bool binary_search(const std::vector<int>& arr, int key,
-                          int& outIndex, int& outCount)
+inline bool Binary_search(const int* arr, const int len, const int key,int& outIndex, int& outCount)
 {
     outIndex = -1;
     outCount = 0;
 
-    std::vector<int> ls = arr;
-    std::sort(ls.begin(), ls.end());              // 需要有顺序
-
     int left  = 0;
-    int right = static_cast<int>(ls.size()) - 1;
+    int right = len - 1;
 
     // 只有 key 落在当前区间内才继续
-    while (left <= right && key >= ls[left] && key <= ls[right]) {
-        ++outCount;
-        int mid = left + (right - left) / 2;      // 防止 (left+right) 溢出
+    while (left <= right && key >= arr[left] && key <= arr[right]) {
+        outCount++;
+        int mid = left + (right - left) / 2;      
 
-        if (ls[mid] == key) {
+        if (arr[mid] == key) {
             outIndex = mid;
             return true;
-        } else if (ls[mid] < key) {
-            left = mid + 1;                       // 原版 left = mid 会死循环
+        } else if (arr[mid] < key) {
+            left = mid + 1;                       
         } else {
-            right = mid - 1;                      // 原版 right = mid 会死循环
+            right = mid - 1;                      
+        }
+    }
+    return false;
+}
+
+/*无需返回比较次数*/
+inline bool Binary_search(const int* arr, const int len, const int key,int& outIndex)
+{
+    outIndex = -1;             
+
+    int left  = 0;
+    int right = len - 1;
+
+    // 只有 key 落在当前区间内才继续
+    while (left <= right && key >= arr[left] && key <= arr[right]) {
+        int mid = left + (right - left) / 2;      
+
+        if (arr[mid] == key) {
+            outIndex = mid;
+            return true;
+        } else if (arr[mid] < key) {
+            left = mid + 1;                       
+        } else {
+            right = mid - 1;                      
         }
     }
     return false;
@@ -55,7 +75,7 @@ inline bool binary_search(const std::vector<int>& arr, int key,
  *    inlist : 原始数据
  *    返回   : 链地址法哈希表，桶数 = inlist.size()
  * ============================================================ */
-inline HashTable build_hash(const std::vector<int>& inlist)
+inline HashTable Build_hash(const std::vector<int>& inlist)
 {
     const int length = static_cast<int>(inlist.size());
     HashTable table(length);
@@ -77,8 +97,7 @@ inline HashTable build_hash(const std::vector<int>& inlist)
  *    outPos    : 找到时返回桶内位置
  *    返回      : true 表示找到，false 表示未找到
  * ============================================================ */
-inline bool hash_search(const HashTable& table, int key,
-                        int& outBucket, int& outPos)
+inline bool Hash_search(const HashTable& table, int key,int& outBucket, int& outPos)
 {
     outBucket = -1;
     outPos    = -1;
@@ -100,15 +119,14 @@ inline bool hash_search(const HashTable& table, int key,
 }
 
 /* 便捷重载：一步到位，内部先建表再查找 */
-inline bool hash_search(const std::vector<int>& inlist, int key,
-                        int& outBucket, int& outPos)
+inline bool Hash_search(const std::vector<int>& inlist, int key,int& outBucket, int& outPos)
 {
-    HashTable table = build_hash(inlist);
-    return hash_search(table, key, outBucket, outPos);
+    HashTable table = Build_hash(inlist);
+    return Hash_search(table, key, outBucket, outPos);
 }
 
 /* 重载，使其能够无需返回索引*/
-inline bool hash_search(const HashTable& table, int key)
+inline bool Hash_search(const HashTable& table, int key)
 {
     const int length = static_cast<int>(table.size());
     if (length == 0) return false;
@@ -131,7 +149,7 @@ inline bool hash_search(const HashTable& table, int key)
  *    说明  : 桶数固定为 table.size()，不会自动扩容；
  *            若表为空（size == 0）则直接忽略
  * ============================================================ */
-inline void hash_add(HashTable& table, int value)
+inline void Hash_add(HashTable& table, int value)
 {
     const int length = static_cast<int>(table.size());
     if (length == 0) return;
@@ -151,8 +169,7 @@ inline void hash_add(HashTable& table, int value)
  *    返回     : true 表示找到，false 表示未找到
  *    说明     : 适合均匀分布的升序数据
  * ============================================================ */
-inline bool interpolation_search(const std::vector<int>& arr, int key,
-                                 int& outIndex, int& outCount)
+inline bool Inter_search(const std::vector<int>& arr, int key,int& outIndex, int& outCount)
 {
     outIndex = -1;
     outCount = 0;
