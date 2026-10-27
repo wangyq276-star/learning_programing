@@ -15,12 +15,23 @@
 仅一行，即 l 的最大值。
 如果连 1cm 长的小段都切不出来，输出 0
 */
+
+/*
+因为二分算法的前提是有序数组，所以使用二分实际上是利用了数组的有序性来降低时间复杂度
+那么就要从中找寻到有序数组
+本题目，根据暴力枚举算法，原本是要从 0 ~ max(woods) 的，
+但这是一个有序数组，因此使用二分来不断缩小区间从而找到那个临界的值
+*/
 #include<iostream>
 using namespace std;
 
 const int N = 1e5 + 10;
+//原木的数量和统一长度的数量
 int n, k;
 int woods[N] = {0};
+
+int findMinLen(int* List, int num, int conNum);
+int max(int* List, int num);
 
 int main(){
     cin >> n >> k;
@@ -29,5 +40,49 @@ int main(){
         cin >> woods[i];
     }
 
+    cout << findMinLen(woods, n, k) << endl;
     
+}
+
+int findMinLen(int* List, int num, int conNum){
+    int left = 0, right = max(List, num), mid;
+    long long totalNum = 0;
+
+    //通过二分寻找比暴力枚举寻找更有效率
+    while(left < right){
+        mid = left + ((right - left + 1) >> 1);
+        totalNum = 0;
+
+        /*
+        for (int i = 0; i < num; i++){
+            totalNum += List[i] / mid;
+        }
+        if (totalNum > conNum){
+            left = mid + 1;
+        }else if (totalNum < conNum){
+            right = mid - 1;
+        }else if (totalNum == conNum){
+            return mid;
+        }
+        */
+
+        for (int i = 0; i < num; i++){
+            totalNum += List[i] / mid;
+        }
+
+        if (totalNum >= conNum){
+            left = mid;
+        }else{
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+
+int max(int* List, int num){
+    int Max = List[0];
+    for (int i = 0; i < num; i++){
+        Max = List[i] > Max ? List[i] : Max;
+    }
+    return Max;
 }
