@@ -24,7 +24,7 @@ int n;
 //商店的坐标
 int loca[N];
 
-int findMinSum(int* List, int len);
+int findMinPoint(int* List, int len);
 
 int main(){
     cin >> n;
@@ -33,10 +33,10 @@ int main(){
         cin >> loca[i];
     }
 
-    cout << findMinSum(loca, n) << endl;
+    cout << findMinPoint(loca, n) << endl;
 }
 
-int findMinSum(int* List, int len){
+int findMinPoint(int* List, int len){
     /* 
     本题最关键的一步就是把货仓的位置设为所有数中位数的位置
     贪心策略就是认为该位置是到所有位置距离之和最小的位置
