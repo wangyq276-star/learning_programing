@@ -64,6 +64,8 @@ int findMinLen(int* List, int num, int conNum){
         }else if (totalNum == conNum){
             return mid;
         }
+
+        不能直接让 left = mid + 1 ，此处的 mid 能否使用还要判断
         */
 
         for (int i = 0; i < num; i++){
@@ -81,6 +83,7 @@ int findMinLen(int* List, int num, int conNum){
 
 int max(int* List, int num){
     int Max = List[0];
+    
     for (int i = 0; i < num; i++){
         Max = List[i] > Max ? List[i] : Max;
     }
