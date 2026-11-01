@@ -29,21 +29,21 @@ int main(){
 
 }
 
-void DFSchoice(string path, int pos, int level){
+void DFSchoice(string path, int pos, int choice){
     //递归出口，当 pos 大于需要排列的人的总数时，就可以打印出每个人的选择（当前路径），然后退出
-    if (pos > level){
+    if (pos > choice){
         cout << path << endl;
         return;
     }
     //第一种选择：不去，然后递归看下一个人去不去
     path += 'N';
-    DFSchoice(path, pos + 1, level);
+    DFSchoice(path, pos + 1, choice);
     //递归结束后一定要记得恢复初始状态（也就是回溯减枝）
     path.pop_back();
 
     //同理，第二种选择：去，然后看下一个人
     path += 'Y';
-    DFSchoice(path, pos + 1, level);
+    DFSchoice(path, pos + 1, choice);
     path.pop_back();
 
 }
