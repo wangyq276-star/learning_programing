@@ -19,6 +19,7 @@ N 架飞机准备降落到某个只有一条跑道的机场。
 对于每组数据，输出 YES 或者 NO，代表是否可以全部安全降落
 */
 
+//本题因为 N 较小，且 T + D 的时间不好确定，所有不适合使用贪心，直接暴力搜索加上一些减枝即可
 #include<iostream>
 #include<cstring>
 using namespace std;
@@ -37,17 +38,19 @@ int main(){
 
     int t;
     cin >> t;
-    
+
     for (int i = 0; i < t; i++){
         //记得清空数据防止污染
         memset(land, 0, sizeof(land));
         memset(T, 0, sizeof(land));
         memset(D, 0, sizeof(land));
         memset(L, 0, sizeof(land));
+
         cin >> n;
         for (int j = 0; j < n; j++){
             cin >> T[j] >> D[j] >> L[j];
         }
+
         if (DFSlandSafe(0, 0)){
             cout << "YES\n";
         }else{

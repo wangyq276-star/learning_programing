@@ -8,6 +8,11 @@
             "path": "PythonProject",
             "envManager": "ms-python.python:system",
             "packageManager": "ms-python.python:pip"
+        },
+        {
+            "path": ".",
+            "envManager": "ms-python.python:system",
+            "packageManager": "ms-python.python:pip"
         }
     ],
     "files.autoGuessEncoding": true

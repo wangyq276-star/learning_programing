@@ -1,5 +1,5 @@
 /*
-洛谷(https://www.luogu.com.cn/problem/UVA11572)
+洛谷（https://www.luogu.com.cn/problem/UVA11572）
 
 题目描述：
 企业家 Emily 有一个很酷的主意：把雪花包起来卖。

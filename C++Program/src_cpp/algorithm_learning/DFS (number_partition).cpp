@@ -49,7 +49,7 @@ int DFSnumpar(int num, int start, int pos, int lot){
         if (total + start * (lot - pos) > num){
             return count;
         }
-
+        
         total += i;
         count += DFSnumpar(num, i, pos + 1, lot);
         total -= i;
