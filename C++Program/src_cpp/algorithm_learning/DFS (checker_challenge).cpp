@@ -21,6 +21,11 @@
 
 using namespace std;
 
+const int N = 50;
+//用于记录每列，和每个左右对角线的占用情况
+int col[N] = {0}, rdiag[N] = {0}, ldiag[N] = {0};
+
+int DFSchecker(int step, int size);
 
 int main(){
     ios::sync_with_stdio(0);
@@ -29,9 +34,38 @@ int main(){
     int n;
     cin >> n;
 
-    DFS();
+    cout << DFSchecker(n, n) <<endl;
 }
 
-int DFSchecker(){
-    
+int DFSchecker(int step, int size){
+    static int solution[N] = {0};
+    static int count = 0;
+
+    if (step == 0){
+        count++;
+        if (count < 4){
+            for (int i = 0; i < size; i++){
+                cout << solution[i] + 1 << ' ';
+            }
+            cout << '\n';
+            //打印前三个解
+        }
+        return 0;
+    }
+
+    //开始暴力枚举
+    for (int i = 0; i < size; i++){
+        //此处位可行性减枝，看看该位置是否合法
+        if (col[i] || rdiag[i - (size - step)] || ldiag[i + (size - step)]){
+            continue;
+        }
+
+        //非常标准的 DFS 三步走
+        col[i]++; rdiag[i - (size - step)]++; ldiag[i + (size - step)]++;
+        solution[size - step] = i;
+        DFSchecker(step - 1, size);
+        solution[size - step] = 0;
+        col[i]--; rdiag[i - (size - step)]--; ldiag[i + (size - step)]--;
+    }
+    return count;
 }

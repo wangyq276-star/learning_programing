@@ -42,9 +42,9 @@ int main(){
     for (int i = 0; i < t; i++){
         //记得清空数据防止污染
         memset(land, 0, sizeof(land));
-        memset(T, 0, sizeof(land));
-        memset(D, 0, sizeof(land));
-        memset(L, 0, sizeof(land));
+        memset(T, 0, sizeof(T));
+        memset(D, 0, sizeof(D));
+        memset(L, 0, sizeof(L));
 
         cin >> n;
         for (int j = 0; j < n; j++){
