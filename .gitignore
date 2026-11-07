@@ -8,6 +8,7 @@ obj/
 dist/
 Debug/
 Release/
+.vscode/
 
 # ---- 编译中间文件与可执行文件 ----
 *.exe
