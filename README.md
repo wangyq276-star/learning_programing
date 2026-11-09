@@ -6,8 +6,7 @@
 
 ```text
 learning_programing/
-├──.vscode → 我的VScode配置文件
-├──CProgram → C语言代码(.c)
+├──CProgram → C语言代码及汇编代码(.c .s)
 ├──C++Program → C++代码(.cpp .h)
 ├──IdeaProject → Java代码(.java)
 ├──CProgram → Python代码(.py)
