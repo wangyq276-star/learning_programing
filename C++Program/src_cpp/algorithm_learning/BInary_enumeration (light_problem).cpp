@@ -35,6 +35,7 @@
 
 #include<iostream>
 #include"print_tools.h"
+#include<string.h>
 
 using namespace std;
 
