@@ -46,7 +46,7 @@ void Quick_sort(int* List, int left, int right){
         }else if (List[m] > p){
             myswap(List[r--], List[m]);
         //小于，往后面放
-        }else if (L[m] < p){
+        }else if (List[m] < p){
             myswap(List[l++], List[m++]);
         }
     }
