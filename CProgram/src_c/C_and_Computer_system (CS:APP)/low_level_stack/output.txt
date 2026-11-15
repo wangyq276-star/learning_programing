@@ -1,0 +1,205 @@
+这是 Stack_random.c 运行了 100 词的结果
+可以发现在这个 64 位的 Linux 系统上，局部变量的地址范围是:
+    0x 7f ff 00 01 b6 98 ~ 0x 7f ff ff fa a4 a8 （书中）
+当然这里和书上的结果存在差异，因为书上的具体数值仅仅是作者当年在特定机器上跑出来的一个样本。
+现代 Linux 系统（比如你用的 WSL Ubuntu）内核版本更新，且开启了 ASLR（地址空间布局随机化）。
+每次程序启动时，操作系统会随机在栈区分配一个“基地址”（Base Address），然后局部变量在此基础上向下偏移。
+
+local at 0x7ffcb01a52d0
+
+local at 0x7ffda3fe5c50
+
+local at 0x7ffcd5e39f30
+
+local at 0x7ffec5a6a010
+
+local at 0x7fffcb141810
+
+local at 0x7ffc99627cc0
+
+local at 0x7ffc070cc460
+
+local at 0x7ffc0e19ed60
+
+local at 0x7ffe6a8e7cf0
+
+local at 0x7ffdda704710
+
+local at 0x7ffc44ad70c0
+
+local at 0x7ffd0e319ac0
+
+local at 0x7fffdf476760
+
+local at 0x7ffee15bff00
+
+local at 0x7ffecb3049f0
+
+local at 0x7ffdde4f1100
+
+local at 0x7ffd1341ca40
+
+local at 0x7ffeae690f00
+
+local at 0x7ffd90153670
+
+local at 0x7ffd9b927370
+
+local at 0x7ffd207b1d20
+
+local at 0x7ffd1039e3e0
+
+local at 0x7ffc0d506910
+
+local at 0x7ffff64c6a80
+
+local at 0x7ffdeeed6670
+
+local at 0x7ffccdef2bf0
+
+local at 0x7ffee6dff6c0
+
+local at 0x7ffdd0587ec0
+
+local at 0x7fff09a7fc70
+
+local at 0x7ffc63163dc0
+
+local at 0x7ffe38293600
+
+local at 0x7fffadad9bb0
+
+local at 0x7fffa47c06e0
+
+local at 0x7ffd35068410
+
+local at 0x7ffdf38fc200
+
+local at 0x7ffdc5a0dd00
+
+local at 0x7ffe4aff9010
+
+local at 0x7ffdd17db460
+
+local at 0x7ffc5aa93250
+
+local at 0x7fffeadce200
+
+local at 0x7ffe99d482c0
+
+local at 0x7ffe0576a840
+
+local at 0x7fff904a8a10
+
+local at 0x7ffe1fb4a330
+
+local at 0x7ffe5ae39720
+
+local at 0x7ffe45a3b940
+
+local at 0x7fff2d76da40
+
+local at 0x7fffa2135880
+
+local at 0x7ffcb887b2e0
+
+local at 0x7fff1f90fc80
+
+local at 0x7ffc81861280
+
+local at 0x7ffd2c91cb20
+
+local at 0x7ffcfef26200
+
+local at 0x7ffc55baa940
+
+local at 0x7ffe5c061e00
+
+local at 0x7ffcdb2879a0
+
+local at 0x7ffebc9a6f40
+
+local at 0x7ffe9d5875b0
+
+local at 0x7ffc8e7dc950
+
+local at 0x7ffeb9490610
+
+local at 0x7ffcafa30ba0
+
+local at 0x7ffeaca179c0
+
+local at 0x7ffc07098e70
+
+local at 0x7ffc46a81350
+
+local at 0x7ffdc3fa0980
+
+local at 0x7fff4c578d70
+
+local at 0x7ffdd7fbeb20
+
+local at 0x7fff4a646da0
+
+local at 0x7ffd7d1333d0
+
+local at 0x7fff56ffbb90
+
+local at 0x7ffe325796d0
+
+local at 0x7ffebb71c590
+
+local at 0x7ffed8e0de20
+
+local at 0x7ffdd1f54b30
+
+local at 0x7ffd7be14720
+
+local at 0x7ffcc9912760
+
+local at 0x7ffe41c9d300
+
+local at 0x7ffda23c6a90
+
+local at 0x7fff056ed950
+
+local at 0x7ffc017dec70
+
+local at 0x7ffd615a2db0
+
+local at 0x7ffd9391d380
+
+local at 0x7fff273eca10
+
+local at 0x7ffe16aadc80
+
+local at 0x7ffe034becc0
+
+local at 0x7ffff5fcfaf0
+
+local at 0x7fff0b054290
+
+local at 0x7ffe62e00600
+
+local at 0x7ffc8fc57120
+
+local at 0x7fffa33d1b50
+
+local at 0x7ffc3306d540
+
+local at 0x7ffd1b06b140
+
+local at 0x7ffc94c4d950
+
+local at 0x7ffca360ce60
+
+local at 0x7ffe85b809d0
+
+local at 0x7fff7c94f220
+
+local at 0x7fff2ab29170
+
+local at 0x7ffdf1d007c0
+
+local at 0x7ffc3fc2c0b0
+
