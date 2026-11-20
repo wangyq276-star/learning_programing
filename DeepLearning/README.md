@@ -3,6 +3,8 @@
 本仓库为**李宏毅教授（Hung-yi Lee）2022 年春季机器学习课程**的课后作业（Homework）代码与笔记合集。
 主要基于 PyTorch 框架实现，涵盖从基础的回归、分类到前沿的生成模型、强化学习、可解释性 AI 等核心领域。
 原仓库地址为：https://github.com/virginiakm1988/ML2022-Spring
+当然兼有李沐老师的深度学习课程和课本《Dive into Deep Learning》的相关代码实现
+（中文名：《动手学深度学习》）
 
 ## 📂 目录结构
 
