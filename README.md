@@ -8,6 +8,7 @@
 learning_programing/
 ├──CProgram → C语言代码及汇编代码(.c .s)
 ├──C++Program → C++代码(.cpp .h)
+├──DeepLearning → 深度学习、机器学习的学习笔记(.ipynb)
 ├──IdeaProject → Java代码(.java)
 ├──CProgram → Python代码(.py)
 ├──Study_resources → 一些学习资料
