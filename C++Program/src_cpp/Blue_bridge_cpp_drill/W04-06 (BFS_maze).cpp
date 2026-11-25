@@ -19,22 +19,23 @@
 #include <queue>
 using namespace std;
 
-const int N = 100;
-int maze[N][N] = {0};
-queue<pair<int, int>> q;
+const int N = 10000;
+int maze[N][N] = {{0}};
 
 int di[4] = {-1, 0, 1, 0};
 int dj[4] = {0, 1, 0, -1};
 int n, m;
 
 void bfs() {
+    queue<pair<int, int>> q;
     q.push({0, 0});
     maze[0][0] = 0;
 
     while (!q.empty()) {
         int i = q.front().first, j = q.front().second;
+        q.pop();
         if (i == n - 1 && j == m - 1) {
-            return;
+            break;
         }
 
         for (int k = 0; k < 4; k++) {
@@ -54,7 +55,7 @@ int main() {
 
     cin >> n >> m;
     for (int i = 0; i < n; i++) {
-        for (int j = 0; i < m; i++) {
+        for (int j = 0; j < m; j++) {
             int k;
             cin >> k;
             maze[i][j] = k == 0 ? -1 : 1;
